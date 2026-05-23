@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Product Management System</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-semibold" href="{% url '' %}">Product Management System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link js-nav-link" href="{% url '' %}">Home
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-nav-link" href="{% url 'category_list' %}">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-nav-link" href="{% url 'product_list' %}">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-nav-link" href="{% url 'deleted_product_list' %}">Trash</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-nav-link" href="{% url 'deleted_category_list' %}">Category Trash</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container py-4 flex-grow-1">
+        {% block content %}
+
+        {% endblock %}
+    </main>
+    <footer class="app-footer py-3 mt-auto">
+        <div class="container text-center text-muted small">
+            © 2026 Product Management System | Final Python Project | Developed by Chanthorn
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (function () {
+            const links = document.querySelectorAll('.js-nav-link');
+            const currentPath = window.location.pathname.replace(/\/$/, '');
+            links.forEach((link) => {
+                const linkPath = link.getAttribute('href').replace(/\/$/, '');
+                if (linkPath === currentPath) {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

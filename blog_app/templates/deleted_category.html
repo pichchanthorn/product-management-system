@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3 page-header">
+        <div>
+            <h3 class="mb-1">Deleted Categories</h3>
+            <p class="text-muted mb-0">Restore categories moved to trash.</p>
+        </div>
+        <div class="d-flex flex-wrap gap-2">
+            <a href="{% url 'deleted_product_list' %}" class="btn btn-outline-secondary">Deleted Products</a>
+            <a href="{% url 'category_list' %}" class="btn btn-outline-secondary">Back to Categories</a>
+        </div>
+    </div>
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                        <tr>
+                            <td class="fw-semibold">{{ forloop.counter }}</td>
+                            <td>{{ row.name }}</td>
+                            <td>
+                                <a href="{% url 'restore_category' row.id %}" class="btn btn-outline-success btn-sm">Restore</a>
+                                <a href="{% url 'permanent_delete_category' row.id %}" class="btn btn-outline-danger btn-sm" onclick="return confirm('This category will be permanently deleted and cannot be restored. Are you sure?');">Permanent Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

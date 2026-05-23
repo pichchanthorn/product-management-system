@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3 page-header">
+        <div>
+            <h3 class="mb-1">Deleted Products</h3>
+            <p class="text-muted mb-0">Restore products moved to trash.</p>
+        </div>
+        <a href="{% url 'product_list' %}" class="btn btn-outline-secondary">Back to Products</a>
+    </div>
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>Barcode</th>
+                            <th>Price</th>
+                            <th>Cost</th>
+                            <th>Qty</th>
+                            <th>Unit</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                        <tr>
+                            <td class="fw-semibold">{{ forloop.counter }}</td>
+                            <td>{{ row.ProductName }}</td>
+                            <td>{{ row.Barcode }}</td>
+                            <td>{{ row.Price }}</td>
+                            <td>{{ row.Cost }}</td>
+                            <td>{{ row.Qty }}</td>
+                            <td>{{ row.Unit }}</td>
+                            <td>{{ row.Description }}</td>
+                            <td>{{ row.CategoryId.name }}</td>
+                            <td>
+                                <a href="{% url 'restore_product' row.ProductId %}" class="btn btn-outline-success btn-sm">Restore</a>
+                                <a href="{% url 'permanent_delete_product' row.ProductId %}" class="btn btn-outline-danger btn-sm" onclick="return confirm('This product will be permanently deleted and cannot be restored. Are you sure?');">Permanent Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

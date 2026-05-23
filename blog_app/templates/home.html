@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="row g-3 mb-4">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h1 class="h3 fw-semibold mb-1 hero-title">Product Management System</h1>
+                    <p class="text-muted mb-0">Final Python Project Dashboard</p>
+                    <p class="text-muted small mt-2 mb-0">Developed by Chanthorn</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card shadow-sm border-0 h-100 dashboard-card">
+                <div class="card-body">
+                    <p class="text-muted small mb-1">Total Categories</p>
+                    <h3 class="fw-semibold mb-0">{{ total_categories }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card shadow-sm border-0 h-100 dashboard-card">
+                <div class="card-body">
+                    <p class="text-muted small mb-1">Total Products</p>
+                    <h3 class="fw-semibold mb-0">{{ total_products }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card shadow-sm border-0 h-100 dashboard-card">
+                <div class="card-body">
+                    <p class="text-muted small mb-1">Products in Trash</p>
+                    <h3 class="fw-semibold mb-0">{{ products_in_trash }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card shadow-sm border-0 h-100 dashboard-card">
+                <div class="card-body">
+                    <p class="text-muted small mb-1">Categories in Trash</p>
+                    <h3 class="fw-semibold mb-0">{{ categories_in_trash }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-body p-4">
+            <h2 class="h5 mb-3">Quick Actions</h2>
+            <div class="d-flex flex-wrap gap-2 quick-actions">
+                <a href="{% url 'add_category' %}" class="btn btn-success">Add Category</a>
+                <a href="{% url 'add_product' %}" class="btn btn-primary">Add Product</a>
+                <a href="{% url 'product_list' %}" class="btn btn-outline-primary">View Product List</a>
+                <a href="{% url 'deleted_product_list' %}" class="btn btn-outline-secondary">View Trash</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h3 class="h6 fw-semibold">Manage Categories</h3>
+                    <p class="text-muted mb-0">Create, update, and organize product categories in one place.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h3 class="h6 fw-semibold">Manage Products</h3>
+                    <p class="text-muted mb-0">Track product details, pricing, quantity, and categories.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h3 class="h6 fw-semibold">Trash & Restore</h3>
+                    <p class="text-muted mb-0">Safely recover deleted items or permanently remove them.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
