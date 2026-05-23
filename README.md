@@ -1,4 +1,3 @@
-git clone https://github.com/pichchanthorn/product-management-system.git
 # Product Management System
 
 ## Project Overview
@@ -23,19 +22,19 @@ Product Management System គឺជា Web Application ដែលបានបង�
 
 ## Screenshots
 ### Home Dashboard
-![Home Dashboard](screenshots/01-home-dashboard.png)
+![Home Dashboard](./screenshots/01-home-dashboard.png)
 
 ### Category List
-![Category List](screenshots/02-category-list.png)
+![Category List](./screenshots/02-category-list.png)
 
 ### Product List
-![Product List](screenshots/03-product-list.png)
+![Product List](./screenshots/03-product-list.png)
 
 ### Add Product
-![Add Product](screenshots/04-add-product.png)
+![Add Product](./screenshots/04-add-product.png)
 
 ### Edit Product
-![Edit Product](screenshots/05-edit-product.png)
+![Edit Product](./screenshots/05-edit-product.png)
 
 ## Installation
 ```bash
